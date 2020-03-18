@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css时钟</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #2c3e50;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            position: relative;
+        }
+        .clock {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(to right, #f1c40f, #e67e22, #e74c3c);
+            position: relative;
+            z-index: -2;
+        }
+        .clock::after {
+            content: '';
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #2c3e50;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .line {
+            position: absolute;
+            width: 85%;
+            height: 85%;
+            background: #2c3e50;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .line>div {
+            width: 10px;
+            background: #fff;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+        }
+
+        .line>div:nth-last-of-type(1) {
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .line>div:nth-last-of-type(2) {
+            transform: translateX(-50%) rotate(30deg);
+        }
+
+        .line>div:nth-last-of-type(3) {
+            transform: translateX(-50%) rotate(60deg);
+        }
+
+        .line>div:nth-last-of-type(4) {
+            transform: translateX(-50%) rotate(90deg);
+        }
+
+        .line>div:nth-last-of-type(5) {
+            transform: translateX(-50%) rotate(120deg);
+        }
+
+        .line>div:nth-last-of-type(6) {
+            transform: translateX(-50%) rotate(150deg);
+        }
+
+        .line::before {
+            content: '';
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: black;
+            width: 90%;
+            height: 90%;
+            position: absolute;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .line::after {
+            content: '';
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(243, 239, 239);
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .hour {
+            width: 6px;
+            background: #fff;
+            height: 20%;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            transform: translateX(-50%);
+        }
+        .minute {
+            width: 5px;
+            background: #fff;
+            height: 25%;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            transform: translateX(-50%) rotate(30deg);
+            transform-origin: bottom;
+            transition: 6s;
+        }
+        .second {
+            width: 3px;
+            background: #fff;
+            height: 30%;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            transform: translateX(-50%) rotate(90deg);
+            transform-origin: bottom;
+            transition: 6s;
+        }
+        main:hover .second{
+            transform: translate(-50%) rotate(450deg);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="clock">
+            <div class="line">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="hour"></div>
+            <div class="minute"></div>
+            <div class="second"></div>
+        </div>
+    </main>
+</body>
+
+</html>
